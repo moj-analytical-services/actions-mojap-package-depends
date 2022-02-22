@@ -2,8 +2,11 @@ name: mojap package dependencies
 description: a test that checks package version changes made during mojap package devleopment do not conflict with other mojap package dependencies
 
 inputs:
+  org-repo:
+    description: org and repo calling this action
+    required: true
   repo:
-    description: repo calling this action
+    description: repo name calling this action
     required: true
   python-versions:
     description: versions of python to test
@@ -16,7 +19,7 @@ runs:
     matrix:
       python-version: ${{ inputs.python-versions }}
   steps:
-      - name: checkout repo
+      - name: checkout composite repo
         uses: actions/checkout@v2
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -28,6 +31,10 @@ runs:
           INSTALLS=$(python .github/scripts/mojap_package_names.py --repo=${{ inputs.repo }})
           echo "::set-output name=INSTALLS::$INSTALLS"
         shell: bash
+      - name: checkout calling repo
+        uses: actions/checkout@v2
+        with:
+          repository: ${{ inputs.org-repo }}
       - name: check changes for conflicts with other mojap package dependencies
         run: |
           python -m pip install --upgrade pip
