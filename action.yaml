@@ -8,16 +8,13 @@ inputs:
   repo:
     description: repo name calling this action
     required: true
-  python-versions:
-    description: versions of python to test
-    required: true
 
 runs:
   using: composite
   strategy:
     fail-fast: true
     matrix:
-      python-version: ${{ inputs.python-versions }}
+      python-version: [3.8]
   steps:
       - name: checkout composite repo
         uses: actions/checkout@v2
