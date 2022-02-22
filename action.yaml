@@ -11,10 +11,6 @@ inputs:
 
 runs:
   using: composite
-  strategy:
-    fail-fast: true
-    matrix:
-      python-version: [3.8]
   steps:
       - name: checkout composite repo
         uses: actions/checkout@v2
