@@ -14,6 +14,8 @@ Composite action that can run a check on whether any changes made during develop
 
 The action should be used in the the repositories of the above packages.
 
+If you want to add to the packages included in the check you should add to [this](https://github.com/moj-analytical-services/actions-mojap-package-depends/blob/main/mojap_package_names.py#L18-L27) list in the format `({PyPI_package_name}, {repo_name})`
+
 Example usage:
 
 ```
