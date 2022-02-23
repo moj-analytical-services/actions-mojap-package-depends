@@ -14,10 +14,6 @@ runs:
   steps:
       - name: checkout composite repo
         uses: actions/checkout@v2
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: ${{ matrix.python-version }}
       - name: strip out calling repo from install string
         id: strip_repo
         run: |
