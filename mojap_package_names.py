@@ -7,7 +7,7 @@ parser = argparse.ArgumentParser(
 
 parser.add_argument(
     "--repo",
-    help="the name of the current github repository"
+    help="the name of the github repository calling the action"
 )
 
 args = parser.parse_args()
