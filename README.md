@@ -1,6 +1,6 @@
 # actions-mojap-package-depends
 
-Composite action that can run a check on whether any changes made during development to the requirements a `mojap` package cause dependency conflicts with any of the other `mojap` packages.
+Composite action that can run a check on whether any changes made during development to the requirements of a `mojap` package cause dependency conflicts with any of the other `mojap` packages.
 
 ## Packages included
 
