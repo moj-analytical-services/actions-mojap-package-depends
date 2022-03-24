@@ -22,8 +22,7 @@ mojap_packages = [
     ("s3-data-packer", "s3_data_packer"),
     ("arrow-pd-parser", "mojap-arrow-pd-parser"),
     ("gluejobutils", "gluejobutils"),
-    ("dataengineeringutils3", "dataengineeringutils3"),
-    ("ml-sandbox", "ml-sandbox")
+    ("dataengineeringutils3", "dataengineeringutils3")
 ]
 
 packages_to_install = [p[0] for p in mojap_packages if p[1] != repo_name]
