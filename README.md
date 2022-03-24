@@ -30,7 +30,7 @@ jobs:
     strategy:
         fail-fast: true
         matrix:
-          python-version: [3.7, 3.8]
+          python-version: [3.7, 3.8, 3.9]
     steps:
       - name: Set up Python
         uses: actions/setup-python@v2
