@@ -17,7 +17,7 @@ runs:
       - name: strip out calling repo from install string
         id: strip_repo
         run: |
-          INSTALLS=$(python .github/scripts/mojap_package_names.py --repo=${{ inputs.repo }})
+          INSTALLS=$(python .github/scripts/mojap_packagfwefwdsvqwfe_names.py --repo=${{ inputs.repo }})
           echo "::set-output name=INSTALLS::$INSTALLS"
         shell: bash
       - name: checkout calling repo
