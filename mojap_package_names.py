@@ -14,6 +14,7 @@ args = parser.parse_args()
 
 repo_name = args.repo
 
+# list of packages included in this test
 # (pypi-name, repo-name)
 mojap_packages = [
     ("mojap-metadata", "mojap-metadata"),
