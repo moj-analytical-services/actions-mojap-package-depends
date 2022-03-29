@@ -12,6 +12,9 @@ inputs:
 runs:
   using: composite
   steps:
+      - name: tesprint
+        run: |
+          echo "hello'
       - name: checkout composite repo
         uses: actions/checkout@v2
         with:
