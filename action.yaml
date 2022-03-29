@@ -15,7 +15,7 @@ runs:
       - name: checkout composite repo
         uses: actions/checkout@v2
         with:
-          repository: ${{ github.repository }}
+          repository: moj-analytical-services/actions-mojap-package-depends
       - name: strip out calling repo from install string
         id: strip_repo
         run: |
