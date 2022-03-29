@@ -15,6 +15,7 @@ runs:
       - name: tesprint
         run: |
           echo "hello'
+        shell: bash
       - name: checkout composite repo
         uses: actions/checkout@v2
         with:
