@@ -8,6 +8,14 @@ inputs:
   repo:
     description: repo name calling this action
     required: true
+  use-poetry-extras:
+    description: whether to use poetry extras in install
+    default: false
+    required: false
+  poetry-install-extras:
+    description: extras to pass to poetry install
+    default: ""
+    required: false
 
 runs:
   using: composite
@@ -32,6 +40,9 @@ runs:
           eval ${{ steps.strip_repo.outputs.INSTALLS }}
           pip install poetry
           poetry config virtualenvs.create false
-          poetry install --no-root --all-extras
+          if ${{ inputs.use-poetry-extras }}
+          then poetry install --no-root --extras "{{ inputs.poetry-install-extras }}"
+          else poetry install --no-root
+          fi
           pip check
         shell: bash
