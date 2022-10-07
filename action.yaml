@@ -32,6 +32,6 @@ runs:
           eval ${{ steps.strip_repo.outputs.INSTALLS }}
           pip install poetry
           poetry config virtualenvs.create false
-          poetry install --no-root
+          poetry install --no-root --all-extras
           pip check
         shell: bash
