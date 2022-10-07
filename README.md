@@ -11,6 +11,7 @@ Composite action that can run a check on whether any changes made during develop
 - `arrow-pd-parser`
 - `gluejobutils`
 - `dataengineeringutils3`
+- `iam-builder`
 
 The action should be used in the the repositories of the above packages.
 
@@ -37,7 +38,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: check changes for conflicts with other mojap package dependencies
-        uses: moj-analytical-services/actions-mojap-package-depends@main
+        uses: moj-analytical-services/actions-mojap-package-depends@v1
         with:
           org-repo: ${{ env.ORG_REPO }}
           repo: ${{ env.REPO_NAME }}
