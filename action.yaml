@@ -41,7 +41,7 @@ runs:
           pip install poetry
           poetry config virtualenvs.create false
           if ${{ inputs.use-poetry-extras }}
-          then poetry install --no-root --extras "{{ inputs.poetry-install-extras }}"
+          then poetry install --no-root --extras "${{ inputs.poetry-install-extras }}"
           else poetry install --no-root
           fi
           pip check
