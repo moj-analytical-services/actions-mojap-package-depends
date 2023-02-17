@@ -20,29 +20,27 @@ inputs:
 runs:
   using: composite
   steps:
-      - name: checkout composite repo
-        uses: actions/checkout@v2
-        with:
-          repository: moj-analytical-services/actions-mojap-package-depends
-      - name: strip out calling repo from install string
-        id: strip_repo
-        run: |
-          INSTALLS=$(python mojap_package_names.py --repo=${{ inputs.repo }})
-          echo "::set-output name=INSTALLS::$INSTALLS"
-        shell: bash
-      - name: checkout calling repo
-        uses: actions/checkout@v2
-        with:
-          repository: ${{ inputs.org-repo }}
-      - name: check changes for conflicts with other mojap package dependencies
-        run: |
-          python -m pip install --upgrade pip
-          eval ${{ steps.strip_repo.outputs.INSTALLS }}
-          pip install poetry
-          poetry config virtualenvs.create false
-          if ${{ inputs.use-poetry-extras }}
-          then poetry install --no-root --extras "${{ inputs.poetry-install-extras }}"
-          else poetry install --no-root
-          fi
-          pip check
-        shell: bash
+    - name: checkout composite repo
+      uses: actions/checkout@v2
+      with:
+        repository: moj-analytical-services/actions-mojap-package-depends
+    - name: strip out calling repo from install string
+      id: strip_repo
+      run: |
+        INSTALLS=$(python mojap_package_names.py --repo=${{ inputs.repo }})
+        echo "::set-output name=INSTALLS::$INSTALLS"
+      shell: bash
+    - name: checkout calling repo
+      uses: actions/checkout@v2
+      with:
+        repository: ${{ inputs.org-repo }}
+    - name: check changes for conflicts with other mojap package dependencies
+      run: |
+        python -m pip install --upgrade pip
+        eval ${{ steps.strip_repo.outputs.INSTALLS }}
+        if ${{ inputs.use-poetry-extras }}
+        then pip install .["${{ inputs.poetry-install-extras }}"]
+        else pip install .
+        fi
+        pip check
+      shell: bash
