@@ -39,7 +39,7 @@ runs:
         python -m pip install --upgrade pip
         eval ${{ steps.strip_repo.outputs.INSTALLS }}
         if ${{ inputs.use-poetry-extras }}
-        then pip install -e .["${{ inputs.poetry-install-extras }}"]
+        then pip install .["${{ inputs.poetry-install-extras }}"]
         else pip install .
         fi
         pip check
