@@ -12,6 +12,7 @@ Composite action that can run a check on whether any changes made during develop
 - `gluejobutils`
 - `dataengineeringutils3`
 - `iam-builder`
+- `database-testing-tools`
 
 The action should be used in the the repositories of the above packages.
 
