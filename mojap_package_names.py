@@ -24,7 +24,8 @@ mojap_packages = [
     ("arrow-pd-parser", "mojap-arrow-pd-parser"),
     ("gluejobutils", "gluejobutils"),
     ("dataengineeringutils3", "dataengineeringutils3"),
-    ("iam-builder", "iam_builder")
+    ("iam-builder", "iam_builder"),
+    ("database-testing-tools", "database-testing-tools")
 ]
 
 packages_to_install = [p[0] for p in mojap_packages if p[1] != repo_name]
